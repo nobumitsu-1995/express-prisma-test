@@ -1,0 +1,9 @@
+{
+  "name": "express-prisma-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "author": "@nobumitsu-1995",
+  "license": "ISC",
+  "description": "expressとprisma環境の実装テスト"
+}
