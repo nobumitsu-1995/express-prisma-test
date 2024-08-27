@@ -5,5 +5,12 @@
   "scripts": {},
   "author": "@nobumitsu-1995",
   "license": "ISC",
-  "description": "expressとprisma環境の実装テスト"
+  "description": "expressとprisma環境の実装テスト",
+  "devDependencies": {
+    "@prisma/client": "^5.18.0",
+    "@types/node": "^22.5.0",
+    "prisma": "^5.18.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
 }
