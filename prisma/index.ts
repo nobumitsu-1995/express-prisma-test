@@ -31,12 +31,47 @@ async function main() {
     // author = Userテーブルとjoinして取得
     include: { author : true }
   })
-
   
   console.log(alice)
   console.log(users)
   console.log(bob)
   console.log(posts)
+
+  // このようにネストしてクエリを実行すると自動でトランザクション処理してくれる。
+  const john = await prisma.user.create({
+    data: {
+      name: 'john',
+      email: 'john２@exsample.com',
+      profile: {
+        create: {
+          bio: 'I like turtles',
+        }
+      } 
+    }
+  })
+  // こんな感じで手動でトランザクション処理の指定もできる。
+  const [user, post, totalPosts ] = await prisma.$transaction([
+    prisma.user.create({
+      data: {
+        name: 'mike',
+        email: 'mike@example.com',
+        profile: {
+          create: {
+            bio: 'I like turtles',
+          }
+        }
+      }
+    }),
+    prisma.post.create({
+      data: {
+        title: 'sample post'
+      }
+    }),
+    prisma.post.count(),
+  ])
+
+  console.log(john)
+  console.log(user, post, totalPosts)
 }
 
 main()
