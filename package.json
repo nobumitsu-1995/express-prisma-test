@@ -2,7 +2,9 @@
   "name": "express-prisma-test",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "npx ts-node prisma/index.ts"
+  },
   "author": "@nobumitsu-1995",
   "license": "ISC",
   "description": "expressとprisma環境の実装テスト",
